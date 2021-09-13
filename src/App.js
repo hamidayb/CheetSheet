@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Header from './components/Header'
+import CheatSheetList from './screens/CheatSheetList'
+import CheatSheet from './screens/CheatSheet'
+import Sample from './screens/Sample'
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Header />
+      <div className='container lg:w-3/5 md:w-max sm:w-screen mx-auto'>
+        <Route path='/' exact component={CheatSheetList} />
+      </div>
+      <div className='container lg:w-3/5 md:w-max sm:w-screen mx-auto'>
+        <Route path='/cheatsheet' exact component={CheatSheet} />
+      </div>
+      <div className='container lg:w-3/5 md:w-max sm:w-screen mx-auto'>
+        <Route path='/sample' exact component={Sample} />
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App
